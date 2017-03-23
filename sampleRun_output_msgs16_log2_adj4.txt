@@ -1,0 +1,806 @@
+[INFO] --- exec-maven-plugin:1.5.0:java (default-cli) @ sales-processing ---
+--------------------------
+<<START>> SALES PROCESSING
+		Configuration{totalMessagesToBeSent:16,logProdAdjstOnMsgsReceived:4,logProdOnMsgsReceived_count:2}
+--------------------------
+				<Receiver Waiting for Msgs>
+				<<SENT>>Sent Message:1:TotalMsgs In Queue:1{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:2}
+				<<Processing>> Msg:{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:2}
+				<Receiver Waiting for Msgs>
+				<Receiver Waiting for Msgs>
+				<Receiver Waiting for Msgs>
+				<<SENT>>Sent Message:2:TotalMsgs In Queue:1{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:3}
+				<<Processing>> Msg:{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:3}
+
+
+---------------------------------------
+LOG Product Sales: ,MsgsProcessed:2
+---------------------------------------
+
+	MProducts {
+		[Product{name:prod1,totalOfAllSales:15, sales:{
+
+			[MSale{totalSaleValue:6,indivSalValue:3, occurrence:2,totalAdjsts:0
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:2}}],
+
+			[MSale{totalSaleValue:9,indivSalValue:3, occurrence:3,totalAdjsts:0
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:3}}]}}]}
+
+-------------------------
+END : LOG Product Sales:
+---------------------------------------
+				<Receiver Waiting for Msgs>
+				<Receiver Waiting for Msgs>
+				<<SENT>>Sent Message:3:TotalMsgs In Queue:1{msgType:'MSG_TYPE_1',productType:'prod1', value:5}
+				<<Processing>> Msg:{msgType:'MSG_TYPE_1',productType:'prod1', value:5}
+				<Receiver Waiting for Msgs>
+				<Receiver Waiting for Msgs>
+				<Receiver Waiting for Msgs>
+				<<SENT>>Sent Message:4:TotalMsgs In Queue:1{msgType:'MSG_TYPE_2',productType:'prod1', value:1,occurrence:3}
+				<<Processing>> Msg:{msgType:'MSG_TYPE_2',productType:'prod1', value:1,occurrence:3}
+
+--------Receiver Pausing to accespt Messages---
+
+
+-------------------------------------------
+LOG Product Adjustments: ,MsgsProcessed:4
+-------------------------------------------
+
+	MProducts {
+		[Product{name:prod1,totalOfAllSales:23, sales:{
+
+			[MSale{totalSaleValue:6,indivSalValue:3, occurrence:2,totalAdjsts:0
+						-FirstMsg-:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:2}}],
+
+			[MSale{totalSaleValue:9,indivSalValue:3, occurrence:3,totalAdjsts:0
+						-FirstMsg-:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:3}}],
+
+			[MSale{totalSaleValue:5,indivSalValue:5, occurrence:1,totalAdjsts:0
+						-FirstMsg-:Message{msgType:'MSG_TYPE_1',productType:'prod1', value:5}}],
+
+			[MSale{totalSaleValue:3,indivSalValue:1, occurrence:3,totalAdjsts:0
+						-FirstMsg-:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:1,occurrence:3}}]}}]}
+
+-------------------------------------------
+END :LOG Product Adjustments: 
+---------------------------
+
+
+---------------------------------------
+LOG Product Sales: ,MsgsProcessed:4
+---------------------------------------
+
+	MProducts {
+		[Product{name:prod1,totalOfAllSales:23, sales:{
+
+			[MSale{totalSaleValue:6,indivSalValue:3, occurrence:2,totalAdjsts:0
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:2}}],
+
+			[MSale{totalSaleValue:9,indivSalValue:3, occurrence:3,totalAdjsts:0
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:3}}],
+
+			[MSale{totalSaleValue:5,indivSalValue:5, occurrence:1,totalAdjsts:0
+				,FirstMsg:Message{msgType:'MSG_TYPE_1',productType:'prod1', value:5}}],
+
+			[MSale{totalSaleValue:3,indivSalValue:1, occurrence:3,totalAdjsts:0
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:1,occurrence:3}}]}}]}
+
+-------------------------
+END : LOG Product Sales:
+---------------------------------------
+				<Receiver Waiting for Msgs>
+				<Receiver Waiting for Msgs>
+				<Receiver Waiting for Msgs>
+				<<SENT>>Sent Message:5:TotalMsgs In Queue:1{msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:4,occurrence:1}
+				<<Processing>> Msg:{msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:4,occurrence:1}
+				<Receiver Waiting for Msgs>
+				<Receiver Waiting for Msgs>
+				<Receiver Waiting for Msgs>
+				<<SENT>>Sent Message:6:TotalMsgs In Queue:1{msgType:'MSG_TYPE_3',productType:'prod1',operation:'multiply', adjVal:2, value:4,occurrence:1}
+				<<Processing>> Msg:{msgType:'MSG_TYPE_3',productType:'prod1',operation:'multiply', adjVal:2, value:4,occurrence:1}
+
+
+---------------------------------------
+LOG Product Sales: ,MsgsProcessed:6
+---------------------------------------
+
+	MProducts {
+		[Product{name:prod1,totalOfAllSales:76, sales:{
+
+			[MSale{totalSaleValue:16,indivSalValue:8, occurrence:2,totalAdjsts:2
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:2}}],
+
+			[MSale{totalSaleValue:24,indivSalValue:8, occurrence:3,totalAdjsts:2
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:3}}],
+
+			[MSale{totalSaleValue:12,indivSalValue:12, occurrence:1,totalAdjsts:2
+				,FirstMsg:Message{msgType:'MSG_TYPE_1',productType:'prod1', value:5}}],
+
+			[MSale{totalSaleValue:12,indivSalValue:4, occurrence:3,totalAdjsts:2
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:1,occurrence:3}}],
+
+			[MSale{totalSaleValue:8,indivSalValue:8, occurrence:1,totalAdjsts:1
+				,FirstMsg:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:4,occurrence:1}}],
+
+			[MSale{totalSaleValue:4,indivSalValue:4, occurrence:1,totalAdjsts:0
+				,FirstMsg:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'multiply', adjVal:2, value:4,occurrence:1}}]}}]}
+
+-------------------------
+END : LOG Product Sales:
+---------------------------------------
+				<Receiver Waiting for Msgs>
+				<Receiver Waiting for Msgs>
+				<Receiver Waiting for Msgs>
+				<<SENT>>Sent Message:7:TotalMsgs In Queue:1{msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1}
+				<<Processing>> Msg:{msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1}
+				<Receiver Waiting for Msgs>
+				<Receiver Waiting for Msgs>
+				<Receiver Waiting for Msgs>
+				<<SENT>>Sent Message:8:TotalMsgs In Queue:1{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:3}
+				<<Processing>> Msg:{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:3}
+
+--------Receiver Pausing to accespt Messages---
+
+
+-------------------------------------------
+LOG Product Adjustments: ,MsgsProcessed:8
+-------------------------------------------
+
+	MProducts {
+		[Product{name:prod1,totalOfAllSales:78, sales:{
+
+			[MSale{totalSaleValue:14,indivSalValue:7, occurrence:2,totalAdjsts:3
+					<<ADJUSTMENT  : 3>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:16,indivSalValue:8, occurrence:2}>
+					<<ADJUSTMENT  : 2>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'multiply', adjVal:2, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:8,indivSalValue:4, occurrence:2}>
+					<<ADJUSTMENT  : 1>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:6,indivSalValue:3, occurrence:2}>
+						-FirstMsg-:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:2}}],
+
+			[MSale{totalSaleValue:21,indivSalValue:7, occurrence:3,totalAdjsts:3
+					<<ADJUSTMENT  : 3>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:24,indivSalValue:8, occurrence:3}>
+					<<ADJUSTMENT  : 2>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'multiply', adjVal:2, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:12,indivSalValue:4, occurrence:3}>
+					<<ADJUSTMENT  : 1>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:9,indivSalValue:3, occurrence:3}>
+						-FirstMsg-:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:3}}],
+
+			[MSale{totalSaleValue:11,indivSalValue:11, occurrence:1,totalAdjsts:3
+					<<ADJUSTMENT  : 3>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:12,indivSalValue:12, occurrence:1}>
+					<<ADJUSTMENT  : 2>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'multiply', adjVal:2, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:6,indivSalValue:6, occurrence:1}>
+					<<ADJUSTMENT  : 1>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:5,indivSalValue:5, occurrence:1}>
+						-FirstMsg-:Message{msgType:'MSG_TYPE_1',productType:'prod1', value:5}}],
+
+			[MSale{totalSaleValue:9,indivSalValue:3, occurrence:3,totalAdjsts:3
+					<<ADJUSTMENT  : 3>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:12,indivSalValue:4, occurrence:3}>
+					<<ADJUSTMENT  : 2>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'multiply', adjVal:2, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:6,indivSalValue:2, occurrence:3}>
+					<<ADJUSTMENT  : 1>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:3,indivSalValue:1, occurrence:3}>
+						-FirstMsg-:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:1,occurrence:3}}],
+
+			[MSale{totalSaleValue:7,indivSalValue:7, occurrence:1,totalAdjsts:2
+					<<ADJUSTMENT  : 2>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:8,indivSalValue:8, occurrence:1}>
+					<<ADJUSTMENT  : 1>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'multiply', adjVal:2, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:4,indivSalValue:4, occurrence:1}>
+						-FirstMsg-:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:4,occurrence:1}}],
+
+			[MSale{totalSaleValue:3,indivSalValue:3, occurrence:1,totalAdjsts:1
+					<<ADJUSTMENT  : 1>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:4,indivSalValue:4, occurrence:1}>
+						-FirstMsg-:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'multiply', adjVal:2, value:4,occurrence:1}}],
+
+			[MSale{totalSaleValue:4,indivSalValue:4, occurrence:1,totalAdjsts:0
+						-FirstMsg-:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1}}],
+
+			[MSale{totalSaleValue:9,indivSalValue:3, occurrence:3,totalAdjsts:0
+						-FirstMsg-:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:3}}]}}]}
+
+-------------------------------------------
+END :LOG Product Adjustments: 
+---------------------------
+
+
+---------------------------------------
+LOG Product Sales: ,MsgsProcessed:8
+---------------------------------------
+
+	MProducts {
+		[Product{name:prod1,totalOfAllSales:78, sales:{
+
+			[MSale{totalSaleValue:14,indivSalValue:7, occurrence:2,totalAdjsts:3
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:2}}],
+
+			[MSale{totalSaleValue:21,indivSalValue:7, occurrence:3,totalAdjsts:3
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:3}}],
+
+			[MSale{totalSaleValue:11,indivSalValue:11, occurrence:1,totalAdjsts:3
+				,FirstMsg:Message{msgType:'MSG_TYPE_1',productType:'prod1', value:5}}],
+
+			[MSale{totalSaleValue:9,indivSalValue:3, occurrence:3,totalAdjsts:3
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:1,occurrence:3}}],
+
+			[MSale{totalSaleValue:7,indivSalValue:7, occurrence:1,totalAdjsts:2
+				,FirstMsg:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:4,occurrence:1}}],
+
+			[MSale{totalSaleValue:3,indivSalValue:3, occurrence:1,totalAdjsts:1
+				,FirstMsg:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'multiply', adjVal:2, value:4,occurrence:1}}],
+
+			[MSale{totalSaleValue:4,indivSalValue:4, occurrence:1,totalAdjsts:0
+				,FirstMsg:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1}}],
+
+			[MSale{totalSaleValue:9,indivSalValue:3, occurrence:3,totalAdjsts:0
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:3}}]}}]}
+
+-------------------------
+END : LOG Product Sales:
+---------------------------------------
+				<Receiver Waiting for Msgs>
+				<Receiver Waiting for Msgs>
+				<Receiver Waiting for Msgs>
+				<<SENT>>Sent Message:9:TotalMsgs In Queue:1{msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1}
+				<<Processing>> Msg:{msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1}
+				<Receiver Waiting for Msgs>
+				<Receiver Waiting for Msgs>
+				<Receiver Waiting for Msgs>
+				<<SENT>>Sent Message:10:TotalMsgs In Queue:1{msgType:'MSG_TYPE_2',productType:'prod1', value:1,occurrence:3}
+				<<Processing>> Msg:{msgType:'MSG_TYPE_2',productType:'prod1', value:1,occurrence:3}
+
+
+---------------------------------------
+LOG Product Sales: ,MsgsProcessed:10
+---------------------------------------
+
+	MProducts {
+		[Product{name:prod1,totalOfAllSales:70, sales:{
+
+			[MSale{totalSaleValue:12,indivSalValue:6, occurrence:2,totalAdjsts:4
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:2}}],
+
+			[MSale{totalSaleValue:18,indivSalValue:6, occurrence:3,totalAdjsts:4
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:3}}],
+
+			[MSale{totalSaleValue:10,indivSalValue:10, occurrence:1,totalAdjsts:4
+				,FirstMsg:Message{msgType:'MSG_TYPE_1',productType:'prod1', value:5}}],
+
+			[MSale{totalSaleValue:6,indivSalValue:2, occurrence:3,totalAdjsts:4
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:1,occurrence:3}}],
+
+			[MSale{totalSaleValue:6,indivSalValue:6, occurrence:1,totalAdjsts:3
+				,FirstMsg:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:4,occurrence:1}}],
+
+			[MSale{totalSaleValue:2,indivSalValue:2, occurrence:1,totalAdjsts:2
+				,FirstMsg:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'multiply', adjVal:2, value:4,occurrence:1}}],
+
+			[MSale{totalSaleValue:3,indivSalValue:3, occurrence:1,totalAdjsts:1
+				,FirstMsg:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1}}],
+
+			[MSale{totalSaleValue:6,indivSalValue:2, occurrence:3,totalAdjsts:1
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:3}}],
+
+			[MSale{totalSaleValue:4,indivSalValue:4, occurrence:1,totalAdjsts:0
+				,FirstMsg:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1}}],
+
+			[MSale{totalSaleValue:3,indivSalValue:1, occurrence:3,totalAdjsts:0
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:1,occurrence:3}}]}}]}
+
+-------------------------
+END : LOG Product Sales:
+---------------------------------------
+				<Receiver Waiting for Msgs>
+				<Receiver Waiting for Msgs>
+				<Receiver Waiting for Msgs>
+				<<SENT>>Sent Message:11:TotalMsgs In Queue:1{msgType:'MSG_TYPE_1',productType:'prod1', value:3}
+				<<Processing>> Msg:{msgType:'MSG_TYPE_1',productType:'prod1', value:3}
+				<Receiver Waiting for Msgs>
+				<Receiver Waiting for Msgs>
+				<Receiver Waiting for Msgs>
+				<<SENT>>Sent Message:12:TotalMsgs In Queue:1{msgType:'MSG_TYPE_1',productType:'prod1', value:5}
+				<<Processing>> Msg:{msgType:'MSG_TYPE_1',productType:'prod1', value:5}
+
+--------Receiver Pausing to accespt Messages---
+
+
+-------------------------------------------
+LOG Product Adjustments: ,MsgsProcessed:12
+-------------------------------------------
+
+	MProducts {
+		[Product{name:prod1,totalOfAllSales:78, sales:{
+
+			[MSale{totalSaleValue:12,indivSalValue:6, occurrence:2,totalAdjsts:4
+					<<ADJUSTMENT  : 4>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:14,indivSalValue:7, occurrence:2}>
+					<<ADJUSTMENT  : 3>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:16,indivSalValue:8, occurrence:2}>
+					<<ADJUSTMENT  : 2>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'multiply', adjVal:2, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:8,indivSalValue:4, occurrence:2}>
+					<<ADJUSTMENT  : 1>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:6,indivSalValue:3, occurrence:2}>
+						-FirstMsg-:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:2}}],
+
+			[MSale{totalSaleValue:18,indivSalValue:6, occurrence:3,totalAdjsts:4
+					<<ADJUSTMENT  : 4>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:21,indivSalValue:7, occurrence:3}>
+					<<ADJUSTMENT  : 3>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:24,indivSalValue:8, occurrence:3}>
+					<<ADJUSTMENT  : 2>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'multiply', adjVal:2, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:12,indivSalValue:4, occurrence:3}>
+					<<ADJUSTMENT  : 1>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:9,indivSalValue:3, occurrence:3}>
+						-FirstMsg-:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:3}}],
+
+			[MSale{totalSaleValue:10,indivSalValue:10, occurrence:1,totalAdjsts:4
+					<<ADJUSTMENT  : 4>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:11,indivSalValue:11, occurrence:1}>
+					<<ADJUSTMENT  : 3>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:12,indivSalValue:12, occurrence:1}>
+					<<ADJUSTMENT  : 2>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'multiply', adjVal:2, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:6,indivSalValue:6, occurrence:1}>
+					<<ADJUSTMENT  : 1>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:5,indivSalValue:5, occurrence:1}>
+						-FirstMsg-:Message{msgType:'MSG_TYPE_1',productType:'prod1', value:5}}],
+
+			[MSale{totalSaleValue:6,indivSalValue:2, occurrence:3,totalAdjsts:4
+					<<ADJUSTMENT  : 4>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:9,indivSalValue:3, occurrence:3}>
+					<<ADJUSTMENT  : 3>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:12,indivSalValue:4, occurrence:3}>
+					<<ADJUSTMENT  : 2>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'multiply', adjVal:2, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:6,indivSalValue:2, occurrence:3}>
+					<<ADJUSTMENT  : 1>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:3,indivSalValue:1, occurrence:3}>
+						-FirstMsg-:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:1,occurrence:3}}],
+
+			[MSale{totalSaleValue:6,indivSalValue:6, occurrence:1,totalAdjsts:3
+					<<ADJUSTMENT  : 3>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:7,indivSalValue:7, occurrence:1}>
+					<<ADJUSTMENT  : 2>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:8,indivSalValue:8, occurrence:1}>
+					<<ADJUSTMENT  : 1>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'multiply', adjVal:2, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:4,indivSalValue:4, occurrence:1}>
+						-FirstMsg-:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:4,occurrence:1}}],
+
+			[MSale{totalSaleValue:2,indivSalValue:2, occurrence:1,totalAdjsts:2
+					<<ADJUSTMENT  : 2>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:3,indivSalValue:3, occurrence:1}>
+					<<ADJUSTMENT  : 1>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:4,indivSalValue:4, occurrence:1}>
+						-FirstMsg-:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'multiply', adjVal:2, value:4,occurrence:1}}],
+
+			[MSale{totalSaleValue:3,indivSalValue:3, occurrence:1,totalAdjsts:1
+					<<ADJUSTMENT  : 1>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:4,indivSalValue:4, occurrence:1}>
+						-FirstMsg-:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1}}],
+
+			[MSale{totalSaleValue:6,indivSalValue:2, occurrence:3,totalAdjsts:1
+					<<ADJUSTMENT  : 1>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:9,indivSalValue:3, occurrence:3}>
+						-FirstMsg-:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:3}}],
+
+			[MSale{totalSaleValue:4,indivSalValue:4, occurrence:1,totalAdjsts:0
+						-FirstMsg-:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1}}],
+
+			[MSale{totalSaleValue:3,indivSalValue:1, occurrence:3,totalAdjsts:0
+						-FirstMsg-:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:1,occurrence:3}}],
+
+			[MSale{totalSaleValue:3,indivSalValue:3, occurrence:1,totalAdjsts:0
+						-FirstMsg-:Message{msgType:'MSG_TYPE_1',productType:'prod1', value:3}}],
+
+			[MSale{totalSaleValue:5,indivSalValue:5, occurrence:1,totalAdjsts:0
+						-FirstMsg-:Message{msgType:'MSG_TYPE_1',productType:'prod1', value:5}}]}}]}
+
+-------------------------------------------
+END :LOG Product Adjustments: 
+---------------------------
+
+
+---------------------------------------
+LOG Product Sales: ,MsgsProcessed:12
+---------------------------------------
+
+	MProducts {
+		[Product{name:prod1,totalOfAllSales:78, sales:{
+
+			[MSale{totalSaleValue:12,indivSalValue:6, occurrence:2,totalAdjsts:4
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:2}}],
+
+			[MSale{totalSaleValue:18,indivSalValue:6, occurrence:3,totalAdjsts:4
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:3}}],
+
+			[MSale{totalSaleValue:10,indivSalValue:10, occurrence:1,totalAdjsts:4
+				,FirstMsg:Message{msgType:'MSG_TYPE_1',productType:'prod1', value:5}}],
+
+			[MSale{totalSaleValue:6,indivSalValue:2, occurrence:3,totalAdjsts:4
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:1,occurrence:3}}],
+
+			[MSale{totalSaleValue:6,indivSalValue:6, occurrence:1,totalAdjsts:3
+				,FirstMsg:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:4,occurrence:1}}],
+
+			[MSale{totalSaleValue:2,indivSalValue:2, occurrence:1,totalAdjsts:2
+				,FirstMsg:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'multiply', adjVal:2, value:4,occurrence:1}}],
+
+			[MSale{totalSaleValue:3,indivSalValue:3, occurrence:1,totalAdjsts:1
+				,FirstMsg:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1}}],
+
+			[MSale{totalSaleValue:6,indivSalValue:2, occurrence:3,totalAdjsts:1
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:3}}],
+
+			[MSale{totalSaleValue:4,indivSalValue:4, occurrence:1,totalAdjsts:0
+				,FirstMsg:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1}}],
+
+			[MSale{totalSaleValue:3,indivSalValue:1, occurrence:3,totalAdjsts:0
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:1,occurrence:3}}],
+
+			[MSale{totalSaleValue:3,indivSalValue:3, occurrence:1,totalAdjsts:0
+				,FirstMsg:Message{msgType:'MSG_TYPE_1',productType:'prod1', value:3}}],
+
+			[MSale{totalSaleValue:5,indivSalValue:5, occurrence:1,totalAdjsts:0
+				,FirstMsg:Message{msgType:'MSG_TYPE_1',productType:'prod1', value:5}}]}}]}
+
+-------------------------
+END : LOG Product Sales:
+---------------------------------------
+				<Receiver Waiting for Msgs>
+				<Receiver Waiting for Msgs>
+				<Receiver Waiting for Msgs>
+				<<SENT>>Sent Message:13:TotalMsgs In Queue:1{msgType:'MSG_TYPE_2',productType:'prod1', value:1,occurrence:3}
+				<<Processing>> Msg:{msgType:'MSG_TYPE_2',productType:'prod1', value:1,occurrence:3}
+				<Receiver Waiting for Msgs>
+				<Receiver Waiting for Msgs>
+				<Receiver Waiting for Msgs>
+				<<SENT>>Sent Message:14:TotalMsgs In Queue:1{msgType:'MSG_TYPE_2',productType:'prod1', value:1,occurrence:3}
+				<<Processing>> Msg:{msgType:'MSG_TYPE_2',productType:'prod1', value:1,occurrence:3}
+
+
+---------------------------------------
+LOG Product Sales: ,MsgsProcessed:14
+---------------------------------------
+
+	MProducts {
+		[Product{name:prod1,totalOfAllSales:84, sales:{
+
+			[MSale{totalSaleValue:12,indivSalValue:6, occurrence:2,totalAdjsts:4
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:2}}],
+
+			[MSale{totalSaleValue:18,indivSalValue:6, occurrence:3,totalAdjsts:4
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:3}}],
+
+			[MSale{totalSaleValue:10,indivSalValue:10, occurrence:1,totalAdjsts:4
+				,FirstMsg:Message{msgType:'MSG_TYPE_1',productType:'prod1', value:5}}],
+
+			[MSale{totalSaleValue:6,indivSalValue:2, occurrence:3,totalAdjsts:4
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:1,occurrence:3}}],
+
+			[MSale{totalSaleValue:6,indivSalValue:6, occurrence:1,totalAdjsts:3
+				,FirstMsg:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:4,occurrence:1}}],
+
+			[MSale{totalSaleValue:2,indivSalValue:2, occurrence:1,totalAdjsts:2
+				,FirstMsg:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'multiply', adjVal:2, value:4,occurrence:1}}],
+
+			[MSale{totalSaleValue:3,indivSalValue:3, occurrence:1,totalAdjsts:1
+				,FirstMsg:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1}}],
+
+			[MSale{totalSaleValue:6,indivSalValue:2, occurrence:3,totalAdjsts:1
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:3}}],
+
+			[MSale{totalSaleValue:4,indivSalValue:4, occurrence:1,totalAdjsts:0
+				,FirstMsg:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1}}],
+
+			[MSale{totalSaleValue:3,indivSalValue:1, occurrence:3,totalAdjsts:0
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:1,occurrence:3}}],
+
+			[MSale{totalSaleValue:3,indivSalValue:3, occurrence:1,totalAdjsts:0
+				,FirstMsg:Message{msgType:'MSG_TYPE_1',productType:'prod1', value:3}}],
+
+			[MSale{totalSaleValue:5,indivSalValue:5, occurrence:1,totalAdjsts:0
+				,FirstMsg:Message{msgType:'MSG_TYPE_1',productType:'prod1', value:5}}],
+
+			[MSale{totalSaleValue:3,indivSalValue:1, occurrence:3,totalAdjsts:0
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:1,occurrence:3}}],
+
+			[MSale{totalSaleValue:3,indivSalValue:1, occurrence:3,totalAdjsts:0
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:1,occurrence:3}}]}}]}
+
+-------------------------
+END : LOG Product Sales:
+---------------------------------------
+				<Receiver Waiting for Msgs>
+				<Receiver Waiting for Msgs>
+				<Receiver Waiting for Msgs>
+				<<SENT>>Sent Message:15:TotalMsgs In Queue:1{msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:5,occurrence:1}
+				<<Processing>> Msg:{msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:5,occurrence:1}
+				<Receiver Waiting for Msgs>
+				<Receiver Waiting for Msgs>
+				<Receiver Waiting for Msgs>
+				<<SENT>>Sent Message:16:TotalMsgs In Queue:1{msgType:'MSG_TYPE_1',productType:'prod1', value:5}
+				<<Processing>> Msg:{msgType:'MSG_TYPE_1',productType:'prod1', value:5}
+
+--------Receiver Pausing to accespt Messages---
+
+
+-------------------------------------------
+LOG Product Adjustments: ,MsgsProcessed:16
+-------------------------------------------
+
+	MProducts {
+		[Product{name:prod1,totalOfAllSales:121, sales:{
+
+			[MSale{totalSaleValue:14,indivSalValue:7, occurrence:2,totalAdjsts:5
+					<<ADJUSTMENT  : 5>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:5,occurrence:1
+						<PREV-MSale{totalSaleValue:12,indivSalValue:6, occurrence:2}>
+					<<ADJUSTMENT  : 4>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:14,indivSalValue:7, occurrence:2}>
+					<<ADJUSTMENT  : 3>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:16,indivSalValue:8, occurrence:2}>
+					<<ADJUSTMENT  : 2>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'multiply', adjVal:2, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:8,indivSalValue:4, occurrence:2}>
+					<<ADJUSTMENT  : 1>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:6,indivSalValue:3, occurrence:2}>
+						-FirstMsg-:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:2}}],
+
+			[MSale{totalSaleValue:21,indivSalValue:7, occurrence:3,totalAdjsts:5
+					<<ADJUSTMENT  : 5>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:5,occurrence:1
+						<PREV-MSale{totalSaleValue:18,indivSalValue:6, occurrence:3}>
+					<<ADJUSTMENT  : 4>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:21,indivSalValue:7, occurrence:3}>
+					<<ADJUSTMENT  : 3>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:24,indivSalValue:8, occurrence:3}>
+					<<ADJUSTMENT  : 2>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'multiply', adjVal:2, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:12,indivSalValue:4, occurrence:3}>
+					<<ADJUSTMENT  : 1>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:9,indivSalValue:3, occurrence:3}>
+						-FirstMsg-:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:3}}],
+
+			[MSale{totalSaleValue:11,indivSalValue:11, occurrence:1,totalAdjsts:5
+					<<ADJUSTMENT  : 5>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:5,occurrence:1
+						<PREV-MSale{totalSaleValue:10,indivSalValue:10, occurrence:1}>
+					<<ADJUSTMENT  : 4>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:11,indivSalValue:11, occurrence:1}>
+					<<ADJUSTMENT  : 3>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:12,indivSalValue:12, occurrence:1}>
+					<<ADJUSTMENT  : 2>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'multiply', adjVal:2, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:6,indivSalValue:6, occurrence:1}>
+					<<ADJUSTMENT  : 1>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:5,indivSalValue:5, occurrence:1}>
+						-FirstMsg-:Message{msgType:'MSG_TYPE_1',productType:'prod1', value:5}}],
+
+			[MSale{totalSaleValue:9,indivSalValue:3, occurrence:3,totalAdjsts:5
+					<<ADJUSTMENT  : 5>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:5,occurrence:1
+						<PREV-MSale{totalSaleValue:6,indivSalValue:2, occurrence:3}>
+					<<ADJUSTMENT  : 4>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:9,indivSalValue:3, occurrence:3}>
+					<<ADJUSTMENT  : 3>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:12,indivSalValue:4, occurrence:3}>
+					<<ADJUSTMENT  : 2>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'multiply', adjVal:2, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:6,indivSalValue:2, occurrence:3}>
+					<<ADJUSTMENT  : 1>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:3,indivSalValue:1, occurrence:3}>
+						-FirstMsg-:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:1,occurrence:3}}],
+
+			[MSale{totalSaleValue:7,indivSalValue:7, occurrence:1,totalAdjsts:4
+					<<ADJUSTMENT  : 4>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:5,occurrence:1
+						<PREV-MSale{totalSaleValue:6,indivSalValue:6, occurrence:1}>
+					<<ADJUSTMENT  : 3>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:7,indivSalValue:7, occurrence:1}>
+					<<ADJUSTMENT  : 2>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:8,indivSalValue:8, occurrence:1}>
+					<<ADJUSTMENT  : 1>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'multiply', adjVal:2, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:4,indivSalValue:4, occurrence:1}>
+						-FirstMsg-:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:4,occurrence:1}}],
+
+			[MSale{totalSaleValue:3,indivSalValue:3, occurrence:1,totalAdjsts:3
+					<<ADJUSTMENT  : 3>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:5,occurrence:1
+						<PREV-MSale{totalSaleValue:2,indivSalValue:2, occurrence:1}>
+					<<ADJUSTMENT  : 2>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:3,indivSalValue:3, occurrence:1}>
+					<<ADJUSTMENT  : 1>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:4,indivSalValue:4, occurrence:1}>
+						-FirstMsg-:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'multiply', adjVal:2, value:4,occurrence:1}}],
+
+			[MSale{totalSaleValue:4,indivSalValue:4, occurrence:1,totalAdjsts:2
+					<<ADJUSTMENT  : 2>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:5,occurrence:1
+						<PREV-MSale{totalSaleValue:3,indivSalValue:3, occurrence:1}>
+					<<ADJUSTMENT  : 1>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:4,indivSalValue:4, occurrence:1}>
+						-FirstMsg-:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1}}],
+
+			[MSale{totalSaleValue:9,indivSalValue:3, occurrence:3,totalAdjsts:2
+					<<ADJUSTMENT  : 2>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:5,occurrence:1
+						<PREV-MSale{totalSaleValue:6,indivSalValue:2, occurrence:3}>
+					<<ADJUSTMENT  : 1>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1
+						<PREV-MSale{totalSaleValue:9,indivSalValue:3, occurrence:3}>
+						-FirstMsg-:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:3}}],
+
+			[MSale{totalSaleValue:5,indivSalValue:5, occurrence:1,totalAdjsts:1
+					<<ADJUSTMENT  : 1>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:5,occurrence:1
+						<PREV-MSale{totalSaleValue:4,indivSalValue:4, occurrence:1}>
+						-FirstMsg-:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1}}],
+
+			[MSale{totalSaleValue:6,indivSalValue:2, occurrence:3,totalAdjsts:1
+					<<ADJUSTMENT  : 1>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:5,occurrence:1
+						<PREV-MSale{totalSaleValue:3,indivSalValue:1, occurrence:3}>
+						-FirstMsg-:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:1,occurrence:3}}],
+
+			[MSale{totalSaleValue:4,indivSalValue:4, occurrence:1,totalAdjsts:1
+					<<ADJUSTMENT  : 1>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:5,occurrence:1
+						<PREV-MSale{totalSaleValue:3,indivSalValue:3, occurrence:1}>
+						-FirstMsg-:Message{msgType:'MSG_TYPE_1',productType:'prod1', value:3}}],
+
+			[MSale{totalSaleValue:6,indivSalValue:6, occurrence:1,totalAdjsts:1
+					<<ADJUSTMENT  : 1>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:5,occurrence:1
+						<PREV-MSale{totalSaleValue:5,indivSalValue:5, occurrence:1}>
+						-FirstMsg-:Message{msgType:'MSG_TYPE_1',productType:'prod1', value:5}}],
+
+			[MSale{totalSaleValue:6,indivSalValue:2, occurrence:3,totalAdjsts:1
+					<<ADJUSTMENT  : 1>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:5,occurrence:1
+						<PREV-MSale{totalSaleValue:3,indivSalValue:1, occurrence:3}>
+						-FirstMsg-:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:1,occurrence:3}}],
+
+			[MSale{totalSaleValue:6,indivSalValue:2, occurrence:3,totalAdjsts:1
+					<<ADJUSTMENT  : 1>>:
+							<ADJ_DUE2_MSG>:msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:5,occurrence:1
+						<PREV-MSale{totalSaleValue:3,indivSalValue:1, occurrence:3}>
+						-FirstMsg-:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:1,occurrence:3}}],
+
+			[MSale{totalSaleValue:5,indivSalValue:5, occurrence:1,totalAdjsts:0
+						-FirstMsg-:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:5,occurrence:1}}],
+
+			[MSale{totalSaleValue:5,indivSalValue:5, occurrence:1,totalAdjsts:0
+						-FirstMsg-:Message{msgType:'MSG_TYPE_1',productType:'prod1', value:5}}]}}]}
+
+-------------------------------------------
+END :LOG Product Adjustments: 
+---------------------------
+
+
+---------------------------------------
+LOG Product Sales: ,MsgsProcessed:16
+---------------------------------------
+
+	MProducts {
+		[Product{name:prod1,totalOfAllSales:121, sales:{
+
+			[MSale{totalSaleValue:14,indivSalValue:7, occurrence:2,totalAdjsts:5
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:2}}],
+
+			[MSale{totalSaleValue:21,indivSalValue:7, occurrence:3,totalAdjsts:5
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:3}}],
+
+			[MSale{totalSaleValue:11,indivSalValue:11, occurrence:1,totalAdjsts:5
+				,FirstMsg:Message{msgType:'MSG_TYPE_1',productType:'prod1', value:5}}],
+
+			[MSale{totalSaleValue:9,indivSalValue:3, occurrence:3,totalAdjsts:5
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:1,occurrence:3}}],
+
+			[MSale{totalSaleValue:7,indivSalValue:7, occurrence:1,totalAdjsts:4
+				,FirstMsg:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:4,occurrence:1}}],
+
+			[MSale{totalSaleValue:3,indivSalValue:3, occurrence:1,totalAdjsts:3
+				,FirstMsg:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'multiply', adjVal:2, value:4,occurrence:1}}],
+
+			[MSale{totalSaleValue:4,indivSalValue:4, occurrence:1,totalAdjsts:2
+				,FirstMsg:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1}}],
+
+			[MSale{totalSaleValue:9,indivSalValue:3, occurrence:3,totalAdjsts:2
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:3,occurrence:3}}],
+
+			[MSale{totalSaleValue:5,indivSalValue:5, occurrence:1,totalAdjsts:1
+				,FirstMsg:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'subtract', adjVal:1, value:4,occurrence:1}}],
+
+			[MSale{totalSaleValue:6,indivSalValue:2, occurrence:3,totalAdjsts:1
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:1,occurrence:3}}],
+
+			[MSale{totalSaleValue:4,indivSalValue:4, occurrence:1,totalAdjsts:1
+				,FirstMsg:Message{msgType:'MSG_TYPE_1',productType:'prod1', value:3}}],
+
+			[MSale{totalSaleValue:6,indivSalValue:6, occurrence:1,totalAdjsts:1
+				,FirstMsg:Message{msgType:'MSG_TYPE_1',productType:'prod1', value:5}}],
+
+			[MSale{totalSaleValue:6,indivSalValue:2, occurrence:3,totalAdjsts:1
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:1,occurrence:3}}],
+
+			[MSale{totalSaleValue:6,indivSalValue:2, occurrence:3,totalAdjsts:1
+				,FirstMsg:Message{msgType:'MSG_TYPE_2',productType:'prod1', value:1,occurrence:3}}],
+
+			[MSale{totalSaleValue:5,indivSalValue:5, occurrence:1,totalAdjsts:0
+				,FirstMsg:Message{msgType:'MSG_TYPE_3',productType:'prod1',operation:'add', adjVal:1, value:5,occurrence:1}}],
+
+			[MSale{totalSaleValue:5,indivSalValue:5, occurrence:1,totalAdjsts:0
+				,FirstMsg:Message{msgType:'MSG_TYPE_1',productType:'prod1', value:5}}]}}]}
+
+-------------------------
+END : LOG Product Sales:
+---------------------------------------
+------------------------
+		Configuration{totalMessagesToBeSent:16,logProdAdjstOnMsgsReceived:4,logProdOnMsgsReceived_count:2}
+<<END>> SALES PROCESSING
+------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 54.104 s
+[INFO] Finished at: 2017-03-23T02:48:49+00:00
+[INFO] Final Memory: 16M/139M
+[INFO] ------------------------------------------------------------------------
