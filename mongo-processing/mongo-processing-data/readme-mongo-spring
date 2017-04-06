@@ -1,0 +1,35 @@
+Resource: http://docs.spring.io/spring-data/data-mongo/docs/2.0.0.M1/reference/html/
+How to just create a DatasourceBean for Mango:
+
+Start a MongoDB instance:
+C:\santo\software\database\MongoDB\Server\3.4\bin>
+mongod.exe -dbpath C:\santo\software\database\MongoDB\mongodbdata\sample1
+
+Prereq: Make sure you are running the MongoInstance or you are using the InMemory Mongo instancel
+
+---------------
+public @Bean Mongo mongo() throws UnknownHostException {
+   return new Mongo("localhost");
+}
+---------------
+OR You can create a MongoClientFactoryBean
+--------------
+    public @Bean MongoClientFactoryBean mongo() {
+          MongoClientFactoryBean mongo = new MongoClientFactoryBean();
+          mongo.setHost("localhost");
+          return mongo;
+     }
+------
+
+----@Proof  Insert and See
+    //@java
+    mongoTemplate.insert(new Person("p2",3));
+    //@mongoClient
+    // To list the persons after you insert the data is
+    /*> use db1;
+    switched to db db1
+    > show collections;
+    person
+    > db.person.find();*/
+-------------------------
+

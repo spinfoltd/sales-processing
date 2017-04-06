@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.teesta.mbom</groupId>
+	<artifactId>mbom-after-ml3c-v1-release-bom</artifactId>
+	<version>ML3C-AFTER-V1-RELEASE</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<slf4j-log4j12.version>1.7.5</slf4j-log4j12.version>
+		<!--<slf4j-log4j12.version>1.5.8</slf4j-log4j12.version>-->
+		<log4j.version>1.2.17</log4j.version>
+
+		<junit.version>4.11</junit.version>
+		<activemq.version>5.10.0</activemq.version>
+		<!-- Database versions -->
+		<hsqldb.version>2.3.2</hsqldb.version>
+		<dbh2.version>1.4.187</dbh2.version>
+		<!--<derby.version>10.11.1.1</derby.version>-->
+		<derbyVersion>10.5.3.0_1</derbyVersion>
+
+		<!-- hibernate -->
+		<hibernate.version>4.3.6.Final</hibernate.version>
+
+		<joda-time.version>2.3</joda-time.version>
+	</properties>
+	<dependencyManagement>
+		<dependencies>
+			<!-- Test Dependencies -->
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<scope>test</scope>
+				<version>${junit.version}</version>
+			</dependency>
+			<!-- Logging Dependencies -->
+
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j-log4j12.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>${slf4j-log4j12.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>${log4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-all</artifactId>
+				<version>1.9.5</version>
+				<scope>test</scope>
+			</dependency>
+			<!-- Springs  -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-test</artifactId>
+				<version>${spring.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<!-- Hibernate -->
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-core</artifactId>
+				<version>${hibernate.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-entitymanager</artifactId>
+				<version>${hibernate.version}</version>
+			</dependency>
+
+			<!-- H2 DB -->
+			<dependency>
+				<groupId>com.h2database</groupId>
+				<artifactId>h2</artifactId>
+				<version>${dbh2.version}</version>
+			</dependency>
+
+			<!-- HyperSQL DB -->
+			<dependency>
+				<groupId>org.hsqldb</groupId>
+				<artifactId>hsqldb</artifactId>
+				<version>${hsqldb.version}</version>
+			</dependency>
+
+			<!-- Derby DB -->
+			<!--<dependency>
+				<groupId>org.apache.derby</groupId>
+				<artifactId>derby</artifactId>
+				<version>${derby.version}</version>
+			</dependency>-->
+			<dependency>
+				<groupId>org.apache.derby</groupId>
+				<artifactId>derby</artifactId>
+				<version>${derbyVersion}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.derby</groupId>
+				<artifactId>derbyclient</artifactId>
+				<version>${derbyVersion}</version>
+			</dependency>
+
+		</dependencies>
+
+
+	</dependencyManagement>
+
+	<build>
+
+		<pluginManagement>
+			<plugins>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.5.1</version>
+					<configuration>
+						<source>1.8</source>
+						<target>1.8</target>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>exec-maven-plugin</artifactId>
+					<version>1.5.0</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>java</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<mainClass>com.mprocessor.sales.exc.SalesProcessingExec</mainClass>
+					</configuration>
+				</plugin>
+				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.apache.maven.plugins
+										</groupId>
+										<artifactId>
+											maven-compiler-plugin
+										</artifactId>
+										<versionRange>
+											[3.6.1,)
+										</versionRange>
+										<goals>
+											<goal>testCompile</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	<repositories>
+		<repository>
+			<id>mvnrepository</id>
+			<url>http://repo1.maven.org/maven2</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+		<repository>
+			<id>redhatga</id>
+			<url>https://maven.repository.redhat.com/ga/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+	</repositories>
+</project>

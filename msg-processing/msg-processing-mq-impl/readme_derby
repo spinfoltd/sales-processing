@@ -1,0 +1,9 @@
+start the server with the command:
+C:\santo\software\database\derby\db-derby-10.13.1.1-bin\bin>startNetworkServer
+
+Start the client:
+C:\santo\software\database\derby\db-derby-10.13.1.1-bin\bin>ij
+ij> connect 'jdbc:derby://localhost:1527/sample'
+
+-- do check the datasource url matches with the above database... Also you can start the server....
+--- check the derby client url that gives u exact url.
